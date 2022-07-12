@@ -2,15 +2,11 @@ const express = require("express");
 const logger = require("morgan");
 const cors = require("cors");
 
-const contacts = require("./models/contacts.json");
-
 const contactsRouter = require("./routes/api/contacts");
 
 const app = express();
 
 const formatsLogger = app.get("env") === "development" ? "dev" : "short";
-
-app.get("/", (req, res) => res.json(contacts));
 
 app.use(logger(formatsLogger));
 app.use(cors());
