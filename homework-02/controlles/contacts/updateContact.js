@@ -1,4 +1,4 @@
-const contacts = require("../../models/contacts");
+const updateContactById = require("../../services/updateContactById");
 
 const { addSchema } = require("../../schemas/contacts");
 
@@ -10,7 +10,7 @@ const updateContact = async (req, res) => {
     throw createError(400, error.message);
   }
   const { contactId } = req.params;
-  const result = await contacts.updateContact(contactId, req.body);
+  const result = await updateContactById(contactId, req.body);
   if (!result) {
     throw createError(404);
   }

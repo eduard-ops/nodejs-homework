@@ -1,10 +1,10 @@
-const contacts = require("../../models/contacts");
+const getContact = require("../../services/getContact");
 
 const { createError } = require("../../helpers");
 
 const getContactById = async (req, res) => {
   const { contactId } = req.params;
-  const result = await contacts.getContactById(contactId);
+  const result = await getContact(contactId);
   if (!result) {
     throw createError(404);
   }
