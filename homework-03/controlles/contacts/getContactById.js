@@ -8,7 +8,7 @@ const getContactById = async (req, res) => {
   if (!result) {
     throw createError(404);
   }
-  res.json(result);
+  res.json({ message: "success", code: 200, data: result });
 };
 
 module.exports = getContactById;
