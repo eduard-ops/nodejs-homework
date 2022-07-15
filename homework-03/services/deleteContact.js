@@ -1,8 +1,8 @@
-const contacts = require("../models/contacts");
+const { Contact } = require("../models");
 
 const deleteContact = async (id) => {
   try {
-    const data = contacts.removeContact(id);
+    const data = Contact.findByIdAndRemove(id);
     return data;
   } catch (error) {
     console.log(error.message);
